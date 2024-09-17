@@ -1,0 +1,2 @@
+# game
+renpy game
