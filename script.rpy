@@ -150,6 +150,40 @@ label stay_with_angel:
     show angel at left
     "Mas Angel é surpreendida por um homem que estava sangrando muito porem o homem que estava fraco e desmaiado."
 
+    "Ajudar o Rapaz?"
+
+    menu:
+        "Ajudar":
+                "Eles Decidem Ajuda-lo"
+                jump help_guy
+
+        "Irem Embora":
+                "Eles Decidem Abandona-lo"
+                jump end_game_transition
+
+    
+    label help_guy:
+
+        show luccadir
+        "Angel e Lucca ficam assustados, mas fazem os primeiros socorros no rapaz ferido"
+
+        "Logo após eles discutem sobre o que devem fazer com o rapaz"
+
+        hide luccadir
+        show lucca
+
+        l "Bom, terminamos mas…O que fazemos?"
+
+        a "Eu não sei ainda…ele me atacou mas acho que foi pra se defender talvez"
+
+        l "Pode ser ele tava com algumas marcas de cortes no corpo fora a bala que retiramos dele, o que será que pode ter acontecido? uma batalha com outro humano?"
+
+        a "Muito provavelmente já vi alguns lutando por mantimentos, território e alguns exércitos de diferentes pessoas querendo lutar contra os infectados por conta própria"
+
+        l "Agora parando pra pensar não é muito difícil isso acontecer mesmo é lamentável, de qualquer forma o melhor a se fazer é esperar ele acordar para perguntar"
+
+        a "Vamos fazer isso então."
+        
     return
 
 
