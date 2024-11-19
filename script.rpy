@@ -1,6 +1,7 @@
 ﻿define a = Character("Angel")
 define l = Character("Lucca")
 define t = Character("Thales")
+define p = Character("Público")
 
 
 
@@ -143,7 +144,7 @@ label stay_with_angel:
     with fade
 
     show angel
-    show ll_right at left 
+    show luccadir at left 
     "La tinha algumas coisas como veículos e muitas caixas que provavelmente tinha alguns mantimentos, cansados decidem sentar um pouco e preparar algo para comer"
     "Mas eles escutam um barulho nos fundos e decidem verificar, chegando là, colocando a cabeça entre as caixas não encontram nada"
     
@@ -259,9 +260,9 @@ label stay_with_angel:
         l "E, com o tempo, a cura começou a chegar às últimas cidades restantes."
 
         
-        scene bg meeting_room with fade
+        scene salaciencias with fade
 
-        show angel at center with dissolve
+        show angel at left with dissolve
         a "Tudo parecia estar indo bem… até eu descobrir a verdade."
 
         show luccadir at left with dissolve 
@@ -270,25 +271,22 @@ label stay_with_angel:
         
         menu:
             "Confrontar Thales diretamente":
-                show angel at center with dissolve
+                show angel at left with dissolve
                 a "O que você está fazendo, Thales? Você sabia o tempo todo, não é?"
-                show thales at center with dissolve
+                show thales at right with dissolve
                 t "Você ainda não entende, Angel? Eu não quero salvar o mundo. Eu quero governá-lo. Eu tenho a cura, e é por isso que estou acima de todos."
             
             "Tentar dialogar com Thales":
-                show angeles at center with dissolve  
+                  
                 a "Thales, isso não é você... O que aconteceu?"
-                show thales at center with dissolve
+                
                 t "O mundo não merece salvação, Angel. Ele precisa de um novo começo, e eu serei o início. Não há mais lugar para humanos fracos como vocês."
 
         
-        show thales at center with dissolve
         t "A cura... a verdadeira cura... sou eu."
 
-        show luccadir at left with dissolve  
+         
         l "Você... Você traiu todos nós, Thales!"
-
-        show thales at center with dissolve
         t "O mundo não merece salvação, Luccas. Ele precisa de um novo começo, e eu serei o início. Não há mais lugar para humanos fracos como vocês."
 
         
@@ -296,13 +294,14 @@ label stay_with_angel:
             "Lutar contra Thales":
                 show angel at center with dissolve
                 a "Eu não vou deixar você fazer isso, Thales!"
-                show thales at center with dissolve
+                hide thales with dissolve
+                show thaleses at right with dissolve
                 t "Matar? Não. Eu não preciso matar vocês. Não mais. O mundo já está condenado. Eu não preciso de aliados ou inimigos. Preciso apenas de lealdade."
                 
                 
                 menu:
                     "Atacar Thales diretamente":
-                        show angel at center with dissolve
+                        
                         a "Vou acabar com isso agora!"
                         
                         $ defeat = True
@@ -316,21 +315,22 @@ label stay_with_angel:
                         jump thales_victory
 
             "Tentar convencer Thales a mudar de ideia":
-                show angeles at center with dissolve  
+                 
                 a "Thales, eu sei que você pode mudar... Isso não precisa ser o fim!"
-                show thales at center with dissolve
+                
                 t "Não há mais o que mudar, Angel. O que vocês chamam de 'cura' nunca foi sobre salvar o mundo. Era sobre controle. E agora... eu sou o único com o poder."
 
                 menu:
                     "Atacar Thales diretamente":
-                        show angel at center with dissolve
+                        
                         a "Eu não posso permitir que você continue com isso!"
+
                        
                         $ defeat = True
                         jump defeated_ending
                     
                     "Tentar negociar":
-                        show angel_left at center with dissolve
+                        
                         a "Ainda há tempo para mudarmos juntos!"
                        
                         $ defeat = False
@@ -338,9 +338,11 @@ label stay_with_angel:
 
         
         label defeated_ending:
-            scene bg city_with_cure with fade
-            show angel at center with dissolve
-            a "Thales foi derrotado... e a cura finalmente pode ser distribuída sem mais interferências."
+            "Angel dá um soco em Thales e ele cai no chão"
+            hide thaleses with dissolve
+            "Desesperado, Thales tenta tirar sua arma de seu coldre, mas Angel é mais rápida e dá um tiro na cabeça de Thales"
+            a "Thales...volte para o buraco do submundo de onde você saiu...finalmente a cura pode ser distribuída sem mais interferências..."
+            scene pordosol with fade
             show luccadir at left with dissolve  
             l "Ainda há muito trabalho a ser feito, mas juntos, podemos reconstruir o mundo."
             show angel at center with dissolve
@@ -351,12 +353,32 @@ label stay_with_angel:
             return
 
         label thales_victory:
-            scene bg dark_ending with fade
-            show thales at center with dissolve
+            hide thales with dissolve
+            show thaleses at right with dissolve
             t "Eu sou o novo líder do mundo. E vocês... estão apenas no meu caminho."
-            show angel_left at center with dissolve 
-            a "Thales... não pode ser..."
-            show lucca_right at left with dissolve 
+            show angel at left with dissolve
+            a "Thales, não faça iss-"
+
+            hide angel with dissolve 
+            "Thales atira em Angel, a matando"
+
+            l "Thales...SEU MALDITO!!!"
+
+            show luccadir at center with dissolve 
+
+            "Luccas avança para atacar Thales, mas acaba tendo o mesmo destino que Angel, sendo acertado por uma bala"
+
+            hide luccadir with dissolve
+
+            t "Não ousem atrapalhar meu império, vocês apenas serviram de peões para meu plano..."
+
+            scene publico with fade
+
+            "Thales, agora sendo um falso herói, comanda a humanidade em prol de sua vontade"
+
+            p "THALES! THALES! THALES!"
+
+
 
             return
 
